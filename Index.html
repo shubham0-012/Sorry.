@@ -1,0 +1,75 @@
+    }
+
+    #response {
+      margin-top: 25px;
+      font-size: 1.2rem;
+      color: #cc0066;
+    }
+
+    .floating-hearts span {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: #ff6699;
+      border-radius: 50% 50% 0 0;
+      transform: rotate(-45deg);
+      animation: float 10s linear infinite;
+    }
+
+    .floating-hearts span::before,
+    .floating-hearts span::after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: #ff6699;
+      border-radius: 50%;
+    }
+
+    .floating-hearts span::before { top: -10px; left: 0; }
+    .floating-hearts span::after { top: 0; left: 10px; }
+
+    .floating-hearts span:nth-child(1) { left: 5%; animation-delay: 0s; }
+    .floating-hearts span:nth-child(2) { left: 25%; animation-delay: 2s; }
+    .floating-hearts span:nth-child(3) { left: 50%; animation-delay: 4s; }
+    .floating-hearts span:nth-child(4) { left: 75%; animation-delay: 6s; }
+    .floating-hearts span:nth-child(5) { left: 90%; animation-delay: 1s; }
+
+    @keyframes float {
+      0% {bottom: -20px; opacity: 0;}
+      50% {opacity: 1;}
+      100% {bottom: 100%; opacity: 0;}
+    }
+  </style>
+</head>
+<body>
+
+  <div class="floating-hearts">
+    <span></span><span></span><span></span><span></span><span></span>
+  </div>
+
+  <div class="card">
+    <div class="heart">💗</div>
+    <h1>I'm Really Sorry, Sister</h1>
+    <p>
+      I know I made a mistake.<br>
+      I didn’t mean to hurt you, and I feel really bad about it.<br>
+      Please forgive me. I miss your smile and your support. 🌸
+    </p>
+
+    <div class="btn-container">
+      <button class="yes" onclick="showResponse()">Yes, I forgive you 😊</button>
+      <button class="no" disabled>No, I'm still upset 😐</button>
+    </div>
+
+    <div id="response"></div>
+  </div>
+
+  <script>
+    function showResponse() {
+      document.getElementById("response").innerHTML =
+        "Thank you so much! You're the kindest sister ever! 🌷";
+    }
+  </script>
+</body>
+</html>
